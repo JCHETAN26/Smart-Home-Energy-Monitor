@@ -1,6 +1,6 @@
 # Smart Home Energy Monitor: A Serverless Data Pipeline on AWS
 
-## 📌 Project Summary
+## Project Summary
 
 This project demonstrates the **end-to-end engineering of a serverless
 data pipeline** for monitoring smart home energy consumption. It
@@ -12,7 +12,7 @@ The system utilizes a **scalable, serverless architecture** designed for **cost 
 
 ------------------------------------------------------------------------
 
-## ✅ Key Features
+## Key Features
 
 -   **Real-Time Data Processing**: Simulated smart home devices push
     data to **Amazon Kinesis**, processed instantly by **AWS Lambda**.
@@ -33,7 +33,7 @@ The system utilizes a **scalable, serverless architecture** designed for **cost 
 
 ------------------------------------------------------------------------
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 The solution is built on an **event-driven, serverless architecture**,
 demonstrating **modern data engineering principles**.
@@ -46,7 +46,7 @@ demonstrating **modern data engineering principles**.
 
 ![](images/Dashboard.png)
 
-## 📸 AWS Console Screenshots
+## AWS Console Screenshots
 ![Console view of AWS Lambda data_producer function](images/data_producer.png)
 
 ------------------------------------------------------------------------
@@ -64,7 +64,7 @@ demonstrating **modern data engineering principles**.
 
 ------------------------------------------------------------------------
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 ### **AWS Services**
 
@@ -91,7 +91,7 @@ demonstrating **modern data engineering principles**.
 
 ------------------------------------------------------------------------
 
-## ⚡ Challenges & Learnings
+## Challenges & Learnings
 
 -   **Lambda Dependencies**: Resolved `Runtime.ImportModuleError` when
     deploying large dependencies like `numpy` by using optimized
@@ -105,7 +105,7 @@ demonstrating **modern data engineering principles**.
 
 ------------------------------------------------------------------------
 
-## ✅ Why This Project Matters
+## Why This Project Matters
 
 This project showcases **full-stack cloud engineering skills**,
 including: - **Data pipeline design** - **Serverless architecture** -
@@ -117,7 +117,7 @@ production-grade solution**.
 
 ------------------------------------------------------------------------
 
-## 🚀 How to Run This Project
+## How to Run This Project
 
 1.  **Clone the repo**
 
@@ -145,7 +145,7 @@ production-grade solution**.
 
 ------------------------------------------------------------------------
 
-## 📌 Future Enhancements
+## Future Enhancements
 
 -   AI-based **predictive energy optimization**
 -   Voice assistant integration (Alexa, Google Home)
