@@ -43,6 +43,9 @@ demonstrating **modern data engineering principles**.
   
 
 ------------------------------------------------------------------------
+## Dashboard Screenshot
+
+![](images/Dashboard.png)
 
 ## 📸 AWS Console Screenshots
 ![Console view of AWS Lambda data_producer function](images/data_producer.png)
