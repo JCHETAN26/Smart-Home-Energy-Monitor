@@ -54,7 +54,11 @@ demonstrating **modern data engineering principles**.
 ------------------------------------------------------------------------
 
 ![Console view of AWS Lambda api_handler function](images/api_handler.png)
-  
+
+------------------------------------------------------------------------
+
+## Anomaly Alerts via Amazon SNS 
+![](images/Email_Alerts.png)
 
 ------------------------------------------------------------------------
 
