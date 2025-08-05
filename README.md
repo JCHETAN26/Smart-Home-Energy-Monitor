@@ -8,8 +8,7 @@ simulates real-time energy usage, processes data for **anomaly
 detection** and **cost estimation**, and visualizes insights on a
 professional, interactive **React dashboard**.
 
-The system leverages the **AWS Free Tier**, emphasizing a
-**cost-effective, fully scalable, and serverless architecture**.
+The system utilizes a **scalable, serverless architecture** designed for **cost efficiency.**
 
 ------------------------------------------------------------------------
 
@@ -154,9 +153,4 @@ production-grade solution**.
 
 ------------------------------------------------------------------------
 
-### 👤 Author
 
-**Chetan Jitendra**\
-Data Science & Cloud Enthusiast \| [LinkedIn](#) \| [GitHub](#)
-
-------------------------------------------------------------------------
