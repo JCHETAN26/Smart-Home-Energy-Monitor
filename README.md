@@ -39,27 +39,8 @@ The system leverages the **AWS Free Tier**, emphasizing a
 The solution is built on an **event-driven, serverless architecture**,
 demonstrating **modern data engineering principles**.
 
-    +----------------+     +-----------------+     +----------------+
-    | Data Producer  | --> | Amazon Kinesis  | --> | AWS Lambda     |
-    | (AWS Lambda)   |     | (Data Stream)   |     | (Data Consumer)|
-    | (Simulated IoT)|     +-----------------+     | (ETL, Anomaly) |
-    +----------------+                           +----------------+
-           |                                           |
-           |-------------------------------------------|
-           |                                           |
-    +----------------+     +-----------------+     +-----------------+
-    | Amazon API     | <-- | AWS Lambda      |     | Amazon DynamoDB |
-    | Gateway        |     | (API Handler)   |     | (Operational DB)|
-    | (REST API)     |     | (Data Aggregator)|     +-----------------+
-    +----------------+     +-----------------+     |                 |
-           |                                       | (Data Lake)     |
-           |-----------------------------------------+ S3 Buckets      |
-           |                                       | (Raw & Processed)|
-           |                                       +-------------------+
-    +----------------+
-    | React App      |
-    | (Dashboard)    |
-    +----------------+
+![AWS IoT Data Pipeline Architecture](images/architecture-diagram.png)
+  
 
 ------------------------------------------------------------------------
 
