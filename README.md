@@ -39,7 +39,7 @@ The system leverages the **AWS Free Tier**, emphasizing a
 The solution is built on an **event-driven, serverless architecture**,
 demonstrating **modern data engineering principles**.
 
-![AWS IoT Data Pipeline Architecture](images/architecture-diagram.png)
+![AWS IoT Data Pipeline Architecture](images/architecture.png)
   
 
 ------------------------------------------------------------------------
