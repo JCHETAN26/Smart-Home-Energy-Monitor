@@ -44,9 +44,17 @@ demonstrating **modern data engineering principles**.
 
 ------------------------------------------------------------------------
 
-## 📸 Screenshots
+## 📸 AWS Console Screenshots
+![Console view of AWS Lambda data_producer function](images/data_producer.png)
 
-*(Add dashboard screenshots and architecture diagram here)*
+------------------------------------------------------------------------
+
+![Console view of AWS Lambda data_consumer function](images/data_consumer.png)
+
+------------------------------------------------------------------------
+
+![Console view of AWS Lambda api_handler function](images/api_handler.png)
+  
 
 ------------------------------------------------------------------------
 
