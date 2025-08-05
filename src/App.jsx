@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import Dashboard from './Dashboard';
 import './App.css';
 
-// REPLACE THIS WITH YOUR ACTUAL API GATEWAY INVOKE URL
-const API_URL = 'https://xfidwiodxj.execute-api.us-east-1.amazonaws.com/prod/data'; 
+const API_URL = 'REPLACE THIS WITH YOUR ACTUAL API GATEWAY INVOKE URL'; 
 
 function App() {
   const [apiData, setApiData] = useState(null);
@@ -27,13 +26,11 @@ function App() {
       }
     }
 
-    // Fetch data immediately on mount
     fetchData();
 
-    // Set up an interval to refresh data every 10 seconds
     const interval = setInterval(fetchData, 10000);
 
-    // Clean up the interval on unmount
+
     return () => clearInterval(interval);
   }, []);
 
