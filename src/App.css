@@ -1,0 +1,14 @@
+.loading-container, .error-container, .no-data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  font-size: 1.2em;
+  color: #6c757d;
+}
+
+.error-container p:first-child {
+  font-weight: bold;
+  color: #dc3545;
+}
