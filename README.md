@@ -38,7 +38,7 @@ The system utilizes a **scalable, serverless architecture** designed for **cost 
 The solution is built on an **event-driven, serverless architecture**,
 demonstrating **modern data engineering principles**.
 
-![AWS IoT Data Pipeline Architecture](images/architecture.png)
+![AWS IoT Data Pipeline Architecture](images/pipeline_architecture.png)
   
 
 ------------------------------------------------------------------------
