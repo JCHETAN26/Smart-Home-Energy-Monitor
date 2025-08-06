@@ -4,24 +4,23 @@ import random
 import boto3
 import os
 
-# Initialize Kinesis client outside the handler for better performance (Lambda reuses connections)
+
 kinesis_client = boto3.client('kinesis')
 
-# --- Configuration (can be set as Lambda Environment Variables later) ---
 STREAM_NAME = os.environ.get('KINESIS_STREAM_NAME', 'smart-home-energy-stream-cj-250722') 
 NUM_RECORDS_PER_INVOCATION = int(os.environ.get('NUM_RECORDS_PER_INVOCATION', '10')) 
 
-# --- Anomaly Injection Configuration ---
+
 ANOMALY_INJECTION_PROBABILITY = 0.03 # 3% chance for a record to be an artificial anomaly
 
-# --- MODIFIED FUNCTION DEFINITION ---
+
 def generate_device_reading(device_id, location, timestamp, hour_of_day, outside_temp_f=None, season=None):
     """Generates a single simulated energy reading for a device."""
     
     consumption_kwh = 0.0 
     status = "OFF"
     
-    # --- Existing consumption logic for various devices (now using hour_of_day) ---
+    
     if "HVAC" in device_id:
         if outside_temp_f is not None:
             if outside_temp_f > 85: # Hot day
@@ -94,7 +93,7 @@ def lambda_handler(event, context):
     readings = []
     current_time = datetime.datetime.now(datetime.timezone.utc) 
 
-    # --- Pass current_hour to the generator ---
+   
     current_hour = current_time.hour # Get hour here
 
     # Simulate outside temperature based on "season" (basic simulation)
@@ -117,7 +116,7 @@ def lambda_handler(event, context):
         simulated_outside_temp_f = random.uniform(50, 80)
     simulated_outside_temp_f = round(simulated_outside_temp_f, 1)
 
-    # Define a set of typical devices
+    
     devices = [
         {"id": "HVAC_001", "loc": "MainHouse"},
         {"id": "Lights_LivingRoom", "loc": "LivingRoom"},
@@ -131,7 +130,7 @@ def lambda_handler(event, context):
 
     for _ in range(NUM_RECORDS_PER_INVOCATION):
         for device in devices:
-            # --- MODIFIED FUNCTION CALL ---
+           
             readings.append(generate_device_reading(
                 device["id"], device["loc"], current_time, current_hour, # Pass current_hour here
                 simulated_outside_temp_f, simulated_season
