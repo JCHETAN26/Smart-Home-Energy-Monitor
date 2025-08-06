@@ -5,21 +5,20 @@ import boto3
 import os
 from decimal import Decimal
 
-# Initialize clients outside the handler for better performance
 dynamodb = boto3.resource('dynamodb')
 s3_client = boto3.client('s3')
 sns_client = boto3.client('sns')
 
-# --- Configuration (can be set as Lambda Environment Variables later) ---
+
 DYNAMODB_READINGS_TABLE_NAME = os.environ.get('DYNAMODB_READINGS_TABLE_NAME', 'SmartHomeReadings')
 S3_PROCESSED_BUCKET_NAME = os.environ.get('S3_PROCESSED_BUCKET_NAME', 'your-smart-home-processed-data-bucket')
 S3_RAW_BUCKET_NAME = os.environ.get('S3_RAW_BUCKET_NAME', 'your-smart-home-raw-data-bucket')
 SNS_TOPIC_ARN = os.environ.get('SNS_TOPIC_ARN', 'arn:aws:sns:REGION:ACCOUNT_ID:smart-home-anomaly-alerts')
 
-# --- NEW: Cost Configuration (using a US national average as an example) ---
+
 COST_PER_KWH_USD = Decimal('0.12') # $0.12 per kilowatt-hour
 
-# --- Anomaly Detection (Rule-based, without numpy) ---
+
 def detect_anomaly(reading):
     """
     Implements basic rule-based anomaly detection.
@@ -76,7 +75,7 @@ def lambda_handler(event, context):
         try:
             reading = json.loads(decoded_payload)
             
-            # --- Data Cleaning & Validation ---
+          
             if not all(k in reading for k in ['timestamp', 'device_id', 'location', 'consumption_kwh', 'status']):
                 print(f"Skipping malformed record (missing keys): {reading}")
                 continue
@@ -95,17 +94,17 @@ def lambda_handler(event, context):
                 print(f"Skipping malformed record (invalid timestamp format): {reading}")
                 continue
 
-            # --- Calculate Cost ---
+         
             cost_usd = Decimal(str(reading['consumption_kwh'])) * COST_PER_KWH_USD
             reading['cost_usd'] = float(cost_usd) # Add to the reading dict for S3
 
-            # --- Rule-based Anomaly Detection ---
+            
             anomaly_detected, anomaly_message = detect_anomaly(reading)
             
             reading['anomaly_detected'] = anomaly_detected
             reading['anomaly_message'] = anomaly_message
 
-            # --- Prepare for DynamoDB SmartHomeReadings Table ---
+           
             dynamodb_item = {
                 'device_timestamp_id': f"{reading['device_id']}#{reading['timestamp']}",
                 'timestamp': reading['timestamp'],
@@ -124,7 +123,7 @@ def lambda_handler(event, context):
 
             dynamodb_batch_items.append(dynamodb_item)
 
-            # --- Prepare for S3 (Processed Data Lake) ---
+            
             s3_processed_records.append(reading) 
 
             if anomaly_detected:
